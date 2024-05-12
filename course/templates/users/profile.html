@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+  <h1>Ваш профиль</h1>
+  <p>
+    Здравствуйте, {{ request.user.get_username }}. Всего у вас <strong>{{ request.user.orders.count }}</strong> заказов.
+  </p>
+  <div style="text-align: justify;">
+    <a href="{% url 'users:user_orders' %}" style="" class="button">Перейти к заказам</a>
+    <a href="{% url 'users:password_change' %}" style="" class="button">Сменить пароль</a>
+    <form action="{% url 'users:logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="button">выйти</button>
+    </form>
+  </div>
+{% endblock %}

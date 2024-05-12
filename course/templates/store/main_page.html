@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+
+  <div>
+    <section class="courses">
+        {% for item in page_obj %}
+          <div class="course">
+            <a href="{% url 'store:item_details' item.slug %}">
+              <h2>{{ item.title }}</h2>
+              <div>
+                <p>{{ item.description|truncatechars:150 }}</p>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+    </section>
+  </div>
+{% endblock %}

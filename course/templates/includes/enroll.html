@@ -1,0 +1,29 @@
+{% load static %}
+<button id="enroll-button">Записаться на курс</button>
+<div id="enrollment-modal" class="modal">
+    <div class="modal-content">
+        <h2>Форма записи</h2>
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name">
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <br>
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone">
+            <br>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</div>
+<script src="{% static 'js/script.js' %}"></script>
+
+<script>
+    const enrollButton = document.getElementById('enroll-button');
+    const enrollmentModal = document.getElementById('enrollment-modal');
+
+    enrollButton.addEventListener('click', function() {
+        enrollmentModal.style.display = 'block';
+    });
+</script>

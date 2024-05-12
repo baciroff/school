@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+  <h2 class="section-title-about-title">{{ item.title }}</h2>
+  <div class="about-us">
+    <div class="about-text">
+    </div>
+    <div class="about-text">
+      <p class="about-text-ph">{{ item.description }}{{ item.description }}</p>
+    </div>
+  </div>
+  <br>
+  <div class="about-text" style="color: black" position="center">
+    {% if item.old_price %}
+      <p>
+        Старая цена: <s>{{ item.old_price }} рублей</s>
+      </p>
+      <p>
+        Новая цена: <b>{{ item.price }}</b> рублей
+      </p>
+      <p>
+    {% else %}
+      <p>
+        Цена: <b>{{ item.price }}</b> рублей
+      </p>
+    {% endif %}
+        <a href="{% url 'cart:add_to_cart' item.slug %}" style="float: left;" class="button about-text">Добавить в корзину</a>
+      </p>
+  </div>
+{% endblock %}

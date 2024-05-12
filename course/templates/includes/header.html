@@ -1,0 +1,36 @@
+{% load static %}
+
+
+  <nav class="header-nav header-top">
+    <div class="header-top">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="{% url 'store:home' %}" ><h4>Programming</h4></a>
+        </div>
+      </div>
+    </div>
+    <div class="header-block">
+      <ul class="header-list">
+        <li class="header-list-item">
+          <a class="header-link" {% if view_name == 'users:profile' %}active{% endif %} href="{% url 'users:profile' %}"><img src="{% static 'img/people.svg' %}" alt="people" /></a>
+        </li>
+        <li class="header-list-item">
+          <a class="header-link" {% if view_name == 'cart:cart' %}active{% endif %} href="{% url 'cart:cart' %}"><img src="{% static 'img/basket.svg' %}" class="" alt="basket" /></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+<div class="header-main">
+    <div class="col-sm-12">
+      <h3>Курс для новичков</h3>
+      <img src="{% static 'images/second.jpg' %}" width="250px" height="200px" style="float: right;">
+      <h1>Программирование с нуля</h1>
+      <p>Попробуйте 9 профессий на практике и узнайте, какая вам лучше всего подойдет</p><br>
+      <h3>- Уровень для новичков <br>
+        - Стажировка во время учебы <br>
+        - Трудоустройство возможно через 6 месяцев
+      </h3>
+    </div>
+</div>
